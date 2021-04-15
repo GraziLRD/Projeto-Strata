@@ -51,6 +51,9 @@ blockquote{
     margin: 2em 0;
     padding: .5em 0 .5em 1.5em;
 }
+blockquote p{
+    margin-bottom: 0;
+}
 code{
     background-color: #f7f7f7;
     border-radius: .35em;
@@ -116,18 +119,29 @@ textarea{
 }
 .buttom-default{
     background-color: #49bf9d;
-    border: 2px solid #49bf9d;
+    border: 3px solid #49bf9d;
     color: white;
     padding: .75em 1.5em;
     border-radius: 5px;
     font-size: .8em;
     display: inline-block; /*precisa transformar o botáo em elemento de bloco nesse caso porque ele ta recebendo formatacoes que só nao dao erro em elementos de linha*/
     width: auto;
+    transition: all .4s;
+    cursor: pointer;
+}
+.buttom-default:hover{
+    background-color: #57dab5;
+    border-color: transparent;
 }
 .buttom-default-stroke{
     background-color: white;
     border-color: #efefef;
     color: inherit;
+}
+.buttom-default-stroke:hover{
+    color: #49bf9d;
+    border-color: #49bf9d;
+    background-color: white;
 }
 .buttom-default-small{
     font-size: 0.6em;
@@ -208,6 +222,16 @@ textarea{
     padding: 124px 54px 72px;
     box-sizing: border-box;
 }
+.recent-works-card{
+    font-size: 16px;
+    text-align: center;
+}
+.title{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 5px;
+    
+}
 .recent-works-card img{
     border-radius: 10px;
     overflow: hidden;
@@ -226,6 +250,62 @@ textarea{
     margin-left: 15px;
     border-radius: 10px;
 }
+.gallery-img img{
+    width: 100%;
+}
+.gallery-thumb img, .gallery-img img{
+    margin-bottom: 2%;
+    border-radius: 10px;
+}
+.main-footer{
+    position: fixed;
+    bottom: 0px;
+    width: 35%;
+    left: 0;
+    padding: 0 54px 72px 0;
+    box-sizing: border-box;
+    text-align: right;    
+}
+.main-footer a{
+    color: rgba(255, 255, 255, .6);
+    text-decoration: none;
+    border-bottom: transparent;
+    font-size: 23px;
+}
+.main-footer a:hover{
+    color: #49bf9d;
+}
+.hidden{ /*se usasse só "display:none" ou "visibility:hidden"náo ia adiantar nada porque ia continuar náo sendo acessivel por nao ser lido pelos leitores de tela*/
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    display: block;
+}
+.copyright{
+    list-style: none;
+}
+.copyright a{
+    font-size: 15px;
+    display: inline-block;
+    border-bottom: 1px dotted;
+}
+.copyright a:hover{
+    border-bottom: transparent;
+}
+.copyright li{
+    display: inline-block;
+    font-size: .8em;
+    padding: 0 0.75em;
+    line-height: 1;
+    border-left: solid 1px rgba(255, 255, 255, 0.25);
+}
+.copyright li:first-child {
+    border-left: 0;
+}
+.copyright li:last-child {
+    padding-right: 0;
+}
+
 /* Grid */
 .row{
     overflow: auto;
@@ -247,5 +327,13 @@ textarea{
 .col-1-3{
     width: 32%;
     float: left;
-    margin-left: 3%;
+}
+.col-1-3:nth-child(3n - 2){ /*a cada multiplo de 3 (3n) -2... (1n) = todos multiplos de 1, (2n)= todos multiplos de 2, etc....*/
+    margin-right: 2%;
+}
+.col-1-3:nth-child(3n){
+    margin-left: 2%;
+}
+.col-2-3 + .col-1-3, .col-1-3 + .col-2-3{/*faz a formatacao na col-1-3 que vem logo apos col-2-3.... vai selecionar justamente a parte do get in touch*/
+    margin-left: 2%;
 }
